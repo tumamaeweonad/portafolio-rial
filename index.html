@@ -63,9 +63,21 @@
 
     h1 { font-size: 46px; font-weight: 700; margin: 0 0 12px 0; line-height: 1.1; letter-spacing: -0.03em; background: linear-gradient(180deg, #ffffff 60%, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     
+    h2 { font-size: 32px; font-weight: 700; margin-bottom: 32px; letter-spacing: -0.02em; }
+
     .subtitle { font-size: 16px; font-weight: 600; background: linear-gradient(90deg, #60a5fa, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 24px; }
 
     p { color: #94a3b8; line-height: 1.75; font-size: 15px; margin: 0 0 20px 0; }
+
+    blockquote {
+      margin: 20px 0;
+      padding: 14px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      font-style: italic;
+      color: #cbd5e1;
+    }
 
     .avatar { width: 200px; height: 200px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12), 0 20px 40px rgba(0,0,0,0.6); object-fit: cover; justify-self: center; transition: transform 0.5s var(--ease-ui); }
     .avatar:hover { transform: scale(1.04); }
@@ -74,6 +86,11 @@
 
     .panel h3 { margin: 0 0 16px 0; font-weight: 600; font-size: 24px; letter-spacing: -0.02em; }
 
+    .timeline { display: flex; flex-direction: column; gap: 20px; margin-top: 15px; }
+    .timeline-item { border-left: 2px solid rgba(96, 165, 250, 0.4); padding-left: 20px; position: relative; }
+    .timeline-item::before { content: ''; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; background: #60a5fa; border-radius: 50%; }
+    .timeline-date { font-weight: 700; color: #60a5fa; margin-bottom: 4px; font-size: 14px; }
+
     .concept-card { transition: transform 0.4s var(--ease-ui), background 0.3s var(--ease-ui); }
     .concept-card:hover { transform: translateY(-4px); background: var(--panel-hover); }
 
@@ -81,7 +98,8 @@
     .icon { font-size: 16px; }
 
     .grid-main { display: flex; flex-direction: column; gap: 28px; }
-    .grid-concepts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 24px; }
+    .grid-concepts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 16px; }
+    .grid-glosario { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 16px; margin-top: 16px; }
 
     .contacto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 12px; }
     .contacto-item { display: flex; flex-direction: column; gap: 14px; justify-content: space-between; }
@@ -98,6 +116,7 @@
       .hero div { order: 2; }
       .nav-wrap { flex-direction: column; gap: 14px; }
       .btn { width: 100%; }
+      .grid-glosario { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -132,41 +151,130 @@
     <div class="container">
       <h2>Inteligencia Artificial</h2>
       <div class="grid-main">
+        
         <div class="panel">
-          <h3>Historia: La evolución de la inteligencia artificial</h3>
-          <p>La IA surgió formalmente en el seminario de Dartmouth en 1956. Históricamente, hemos pasado por periodos de gran entusiasmo seguidos de "inviernos" donde el financiamiento caía. Desde la lógica simbólica inicial y los sistemas expertos rígidos de los años 80, hemos migrado hacia un paradigma actual dominado por el Big Data y las redes neuronales. Hoy, la convergencia de una capacidad de cómputo masiva (GPUs) y la abundancia de datos han permitido que arquitecturas como los Transformers transformen la industria.</p>
+          <h3>Historia: Hitos Clave de la Inteligencia Artificial</h3>
+          <p>La Inteligencia Artificial es el resultado de décadas de evolución matemática, filosófica y computacional, atravesando ciclos de altas expectativas e inviernos de financiamiento.</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">1950 – El Test de Turing</div>
+              <p style="font-size: 14px; margin: 0;">Alan Turing publica <em>"Computing Machinery and Intelligence"</em> e introduce su famoso test conceptual como métrica de la inteligencia en máquinas.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1956 – La Conferencia de Dartmouth</div>
+              <p style="font-size: 14px; margin: 0;">Se acuña oficialmente el término "Inteligencia Artificial" y se establecen los pilares del campo gracias a McCarthy, Minsky, Rochester y Shannon.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1960s - 1970s – Primeros Éxitos e Inviernos</div>
+              <p style="font-size: 14px; margin: 0;">Aparecen desarrollos iniciales como ELIZA y las redes elementales del Perceptrón. La falta de potencia de cálculo provoca el primer cese masivo de financiamiento.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1980s – Sistemas Expertos</div>
+              <p style="font-size: 14px; margin: 0;">Resurgimiento mediante software basado en reglas de conocimiento humano especializado. Al resultar rígidos y costosos de mantener, el optimismo decae en un segundo invierno.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">1997 – Deep Blue</div>
+              <p style="font-size: 14px; margin: 0;">La supercomputadora de IBM vence al campeón mundial de ajedrez Garry Kasparov, demostrando el potencial de los algoritmos de búsqueda y procesamiento.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2012 – La Revolución del Deep Learning</div>
+              <p style="font-size: 14px; margin: 0;">La combinación de Big Data y GPUs permite a las redes neuronales profundas alcanzar precisiones récord en reconocimiento de imágenes (AlexNet).</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2017 – La Arquitectura Transformer</div>
+              <p style="font-size: 14px; margin: 0;">Investigadores de Google publican <em>"Attention Is All You Need"</em>, habilitando el procesamiento del lenguaje moderno y los modelos generativos actuales.</p>
+            </div>
+          </div>
         </div>
 
         <div class="panel">
           <h3>Conceptos Técnicos Fundamentales</h3>
+          <p>Diferenciar las ramas y los alcances prácticos de los sistemas actuales es fundamental para comprender el ecosistema de la computación cognitiva.</p>
           <div class="grid-concepts">
             <div class="panel concept-card">
               <h4 class="concept-title"><span class="icon">🟢</span> IA Débil (Narrow AI)</h4>
-              <p style="font-size: 14px;">Sistemas especializados en tareas específicas mediante lógica probabilística. No poseen conciencia ni generalización, solo optimización de objetivos definidos.</p>
+              <p style="font-size: 14px; margin: 0;">Sistemas especializados en resolver tareas específicas mediante optimización probabilística. No poseen conciencia ni comprensión fuera de su dominio de datos.</p>
             </div>
             <div class="panel concept-card">
               <h4 class="concept-title"><span class="icon">🔴</span> IA Fuerte (AGI)</h4>
-              <p style="font-size: 14px;">El objetivo teórico de crear máquinas capaces de realizar cualquier tarea intelectual humana, con adaptabilidad, razonamiento y conciencia propia.</p>
+              <p style="font-size: 14px; margin: 0;">Concepto teórico de una Inteligencia Artificial General capaz de igualar las capacidades cognitivas de un humano, operando con adaptabilidad, razonamiento y conciencia propia.</p>
             </div>
             <div class="panel concept-card">
-              <h4 class="concept-title"><span class="icon">🔵</span> Machine Learning</h4>
-              <p style="font-size: 14px;">Paradigma donde el sistema aprende patrones de los datos ajustando pesos matemáticos ($\hat{y} = f(x; \theta)$) para minimizar errores, sin ser programado explícitamente.</p>
+              <h4 class="concept-title"><span class="icon">🔵</span> Machine Learning (ML)</h4>
+              <p style="font-size: 14px; margin: 0;">Subcampo de la IA donde el sistema aprende patrones de forma autónoma a partir de datos históricos para realizar predicciones sin reglas programadas de manera explícita.</p>
             </div>
             <div class="panel concept-card">
-              <h4 class="concept-title"><span class="icon">🟣</span> Deep Learning</h4>
-              <p style="font-size: 14px;">Subcampo de ML basado en redes neuronales con múltiples capas, ideal para reconocer jerarquías de características complejas en datos no estructurados.</p>
+              <h4 class="concept-title"><span class="icon">🟣</span> Deep Learning (DL)</h4>
+              <p style="font-size: 14px; margin: 0;">Subrama de ML basada en redes neuronales de múltiples capas ocultas, ideales para extraer abstracciones jerárquicas en datos de alta complejidad.</p>
             </div>
             <div class="panel concept-card">
               <h4 class="concept-title"><span class="icon">🟠</span> PLN (NLP)</h4>
-              <p style="font-size: 14px;">Tecnología que utiliza modelos estadísticos y representaciones vectoriales para interpretar, procesar y generar lenguaje natural humano.</p>
+              <p style="font-size: 14px; margin: 0;">Procesamiento del Lenguaje Natural. Disciplina que combina modelos estadísticos y lingüísticos para interpretar, procesar, estructurar y generar lenguaje humano.</p>
             </div>
           </div>
+        </div>
+
+        <div class="panel">
+          <h3>Análisis Ético e Impacto Social</h3>
+          <p>El despliegue masivo de la IA plantea dilemas críticos que moldean de manera directa e integral la sociedad moderna:</p>
+          
+          <h4 style="color: #60a5fa; margin: 20px 0 8px 0; font-size: 18px;">Sesgos Algorítmicos</h4>
+          <p>Los modelos de IA aprenden de datos históricos que suelen contener sesgos de género, raza o nivel socioeconómico. Si los datos están comprometidos, el algoritmo replicará y amplificará la discriminación en áreas sensibles como contrataciones, créditos financieros y seguridad pública.</p>
+          <blockquote>"Basura entra, basura sale" (Garbage in, garbage out). Un modelo es tan justo y preciso como el conjunto de datos con el que fue entrenado.</blockquote>
+
+          <h4 style="color: #60a5fa; margin: 20px 0 8px 0; font-size: 18px;">Privacidad y Datos Personales</h4>
+          <p>El entrenamiento de modelos a gran escala requiere inmensos volúmenes de datos recogidos de entornos digitales, muchas veces con políticas de consentimiento opacas. Garantizar el derecho a la privacidad, prevenir el rastreo masivo y evitar la manipulación conductual son desafíos regulatorios críticos.</p>
+
+          <h4 style="color: #60a5fa; margin: 20px 0 8px 0; font-size: 18px;">El Futuro Laboral</h4>
+          <p>A diferencia de revoluciones industriales anteriores enfocadas en lo mecánico, la automatización por IA impacta directamente tareas cognitivas, rutinarias y creativas:</p>
+          <ul style="color: #94a3b8; line-height: 1.75; font-size: 15px; margin-bottom: 0;">
+            <li><strong>Desplazamiento:</strong> Reestructuración de roles en atención al cliente, redacción estándar, análisis intermedio y soporte técnico básico.</li>
+            <li><strong>Creación:</strong> Surgimiento de ingenieros de prompts, especialistas en ética algorítmica, analistas de datos y supervisores de automatización.</li>
+            <li><strong>Coexistencia:</strong> La tendencia indica que los profesionales del futuro no serán reemplazados por una IA, sino por otros profesionales que dominen el uso de la misma de manera eficiente.</li>
+          </ul>
         </div>
 
         <div class="panel">
           <h3>Visión Profesional en Informática</h3>
           <p>Veo la IA como un habilitador tecnológico fundamental en nuestra carrera. Mi enfoque es comprender la arquitectura y lógica estadística detrás de los modelos para desarrollar soluciones éticas y seguras. La IA funcionará como un copiloto que potenciará nuestras capacidades, permitiéndonos enfocarnos en la eficiencia y la ciberseguridad en el desarrollo de sistemas.</p>
         </div>
+
+        <div class="panel">
+          <h3>Glosario Técnico Essential</h3>
+          <div class="grid-glosario">
+            <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid var(--panel-border);">
+              <strong style="color: #60a5fa;">1. Algoritmo:</strong> <span style="font-size: 14px; color: var(--muted);">Conjunto finito de instrucciones matemáticas lógicas y ordenadas destinadas a resolver un problema específico.</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid var(--panel-border);">
+              <strong style="color: #60a5fa;">2. Red Neuronal Artificial (ANN):</strong> <span style="font-size: 14px; color: var(--muted);">Modelo computacional inspirado en el cerebro humano que procesa información mediante nodos interconectados distribuidos en capas.</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid var(--panel-border);">
+              <strong style="color: #60a5fa;">3. Transformer:</strong> <span style="font-size: 14px; color: var(--muted);">Arquitectura basada en mecanismos de atención que procesa secuencias de datos simultáneamente, optimizando el entrenamiento del lenguaje.</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid var(--panel-border);">
+              <strong style="color: #60a5fa;">4. Overfitting (Sobreajuste):</strong> <span style="font-size: 14px; color: var(--muted);">Error en ML donde el modelo memoriza los datos de entrenamiento y pierde la capacidad de generalizar predicciones ante datos nuevos.</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid var(--panel-border);">
+              <strong style="color: #60a5fa;">5. LLM (Large Language Model):</strong> <span style="font-size: 14px; color: var(--muted);">Modelo de aprendizaje profundo a gran escala estructurado para comprender y generar texto en lenguaje natural de alta coherencia.</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid var(--panel-border);">
+              <strong style="color: #60a5fa;">6. Prompt Engineering:</strong> <span style="font-size: 14px; color: var(--muted);">Técnica de estructuración y diseño de entradas lógicas textuales para maximizar la calidad y precisión en las respuestas de una IA.</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid var(--panel-border);">
+              <strong style="color: #60a5fa;">7. Dataset:</strong> <span style="font-size: 14px; color: var(--muted);">Colección indexada y estructurada de datos (cualitativos o cuantitativos) utilizada directamente en el entrenamiento estadístico de modelos.</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid var(--panel-border);">
+              <strong style="color: #60a5fa;">8. Reinforcement Learning:</strong> <span style="font-size: 14px; color: var(--muted);">Aprendizaje por refuerzo. Método de ML donde un agente interactúa en un entorno y aprende por un sistema de recompensas y penalizaciones.</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid var(--panel-border);">
+              <strong style="color: #60a5fa;">9. Fine-Tuning:</strong> <span style="font-size: 14px; color: var(--muted);">Ajuste fino. Proceso de tomar un modelo previamente entrenado a nivel general y reentrenarlo con un conjunto específico para una tarea particular.</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); padding: 16px; border-radius: 12px; border: 1px solid var(--panel-border);">
+              <strong style="color: #60a5fa;">10. Visión Artificial:</strong> <span style="font-size: 14px; color: var(--muted);">Campo de la computación enfocado en permitir que los sistemas interpreten y extraigan información semántica desde imágenes o videos reales.</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
